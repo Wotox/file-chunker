@@ -2,6 +2,7 @@ import os
 import sys
 import logging
 from pathlib import Path
+from natsort import natsorted
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -61,7 +62,8 @@ def divide(file_path:str, chunk_size:int):
 
 def build(chunks_path, build_path, file_name):
     bytes_string = bytes()
-    files = os.listdir(chunks_path)
+    files = natsorted(os.listdir(chunks_path))
+
     for file in files:
         file_content = read_file_contents(chunks_path + '/' + file)
         bytes_string += file_content
