@@ -1,2 +1,6 @@
 natsort
 pathlib
+fastapi
+requests
+pydantic
+python-multipart
