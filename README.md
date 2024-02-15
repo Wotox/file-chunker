@@ -2,13 +2,20 @@
 1. The program can divide any file into equally-sized chunks.
 2. The program can build any file using its chunks.
 
+## Description
+```divide``` accepts any file and returns zip compressed stream of its chunks that can be concatenated back together by capable program.\
+```build``` accepts zipped archive of previously chunked file, puts it back together and returns its stream.
 ## Usage
+### Deploying API
+```uvicorn api:app --reload```
 ### Chunking
-Arguments: -d(--divide) path_to_file chunk_size(KB)\
-Example: ```python main.py -d /path/to/file.bin 1000```
+Endpoint ```/divide/```\
+Request ```multipart/form-data``` ```file string($binary)```\
+Response ```StreamingResponse```
 ### Building
-Arguments: -b(--build) path_to_chunks build_folder filename\
-Example: ```python main.py -b /path/to/chunks /path/to/build file.bin```
+Endpoint ```/build/```\
+Request ```multipart/form-data``` ```file string($binary)```\
+Response ```StreamingResponse```
 
 ---
-Note: dividing large files into extremely small chunks (100MB into 10KB parts, for instance) will make this script crawl.
+Swagger at ```/docs```
