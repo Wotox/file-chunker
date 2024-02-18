@@ -4,3 +4,4 @@ fastapi
 requests
 pydantic
 python-multipart
+filetype
