@@ -7,10 +7,13 @@
 ```build``` accepts zipped archive of previously chunked file, puts it back together and returns its stream.
 ## Usage
 ### Deploying API
-```uvicorn api:app --reload```
+Docker sets up the server at ```http://localhost:8101```\
+Change directory to docker-compose.yml location ```cd compose_api```\
+Build Docker image ```docker compose build```\
+Start the container ```docker compose up -d```
 ### Chunking
 Endpoint ```/divide/```\
-Request ```multipart/form-data``` ```file string($binary)```\
+Request ```multipart/form-data``` ```file string($binary)``` ```chunk_size integer``` ```file_name string```\
 Response ```StreamingResponse```
 ### Building
 Endpoint ```/build/```\
