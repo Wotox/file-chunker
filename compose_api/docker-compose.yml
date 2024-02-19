@@ -1,0 +1,7 @@
+version: '3.9'
+services:
+  chunker-api:
+    build: 
+      context: ../
+    ports:
+      - 8101:8000

@@ -1,6 +1,7 @@
 natsort
 pathlib
 fastapi
+uvicorn
 requests
 pydantic
 python-multipart
